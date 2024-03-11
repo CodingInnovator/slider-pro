@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    overflow: hidden;
+}
+
+#image-container {
+    width: 95vmin;
+    height: 50vmin;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    aspect-ratio: 16 / 9;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    border-radius: .75rem;
+    transform: translate(-50%, -50%);
+}
+
+#image-container img {
+    flex: 1 0 90%;
+    object-fit: cover;
+    object-position: center;
+    scroll-snap-align: start;
+    display: none;
+}
+
+#image-container img.active {
+    display: block;
+}
+
+#image-nav-buttons {
+    position: absolute;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#image-nav-buttons a {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 0.1rem;
+    background-color: white;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+#image-nav-buttons a:hover,
+#image-nav-buttons a.active {
+    opacity: 1;
+    width: 1rem;
+}
+
+#image-navigation {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#image-navigation .next,
+#image-navigation .prev {
+    user-select: none;
+    width: 2.75rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1rem;
+    background-color: white;
+    opacity: 0.8;
+    cursor: pointer;
+    border-radius: 0.15rem;
+}
+
+#image-navigation .prev:hover,
+#image-navigation .next:hover {
+    opacity: 1;
+}
